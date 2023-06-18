@@ -5,7 +5,7 @@ const InlineStyle = () => {
     margin: "8px",
     padding: "8px",
     display: "flex",
-    jsutifyContent: "space-around",
+    justifyContent: "space-around",
     alignItems: "center",
   };
 
