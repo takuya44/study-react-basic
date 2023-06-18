@@ -28,3 +28,12 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+# メモ
+
+### 再レンダリングが起きる条件３つ
+
+- state が更新されたコンポーネントは再レンダリングされる。
+- props が変更されたコンポーネントは再レンダリングされる。
+- 再レンダリングされたコンポーネント配下の子要素は再レンダリングされる
+  - 例」A ＞ B ＞ C（B での変更があると C も再レンダリングされる。）
