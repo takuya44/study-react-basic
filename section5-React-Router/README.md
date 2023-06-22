@@ -1,5 +1,27 @@
 # メモ
 
-### 再レンダリングが起きる条件３つ
+### ネストされたページ遷移
 
-- state が更新されたコンポーネントは再レンダリングされる。
+<details><summary>サンプルコード</summary>
+
+```js
+<Route
+  path="/page1"
+  render={({ match: { url } }) => (
+    <Switch>
+      {/* {console.log(url)} */}
+      <Route exact path={url}>
+        <Page1 />
+      </Route>
+      <Route path={`${url}detailA`}>
+        <Page1DetailA />
+      </Route>
+      <Route path={`${url}detailB`}>
+        <Page1DetailB />
+      </Route>
+    </Switch>
+  )}
+/>
+```
+
+</details>
