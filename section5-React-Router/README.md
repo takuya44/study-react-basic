@@ -95,5 +95,31 @@ export const Page1Routes = [
   },
 ];```
 
-</details>
 ````
+
+</details>
+
+### Link を使わないページ遷移：useHistory()
+
+<details><summary>サンプルコード</summary>
+
+```js
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+
+const Page1DetailA = () => {
+  const history = useHistory();
+
+  const onClickBack = () => {
+    history.goBack();
+  };
+
+  return (
+    <div>
+      <h1>Page1DetailA</h1>
+      <button onClick={onClickBack}>戻る</button>
+    </div>
+  );
+};
+```
+
+</details>
