@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const UserIconWithName = (prpos) => {
-  const { name, image } = prpos;
+const UserIconWithName = (props) => {
+  const { name, image } = props;
 
   return (
     <SContainer>

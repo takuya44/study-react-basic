@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <SHeader>
       <SLink to="/">HOME</SLink>
-      <SLink to="/">USERS</SLink>
+      <SLink to="/users">USERS</SLink>
     </SHeader>
   );
 };
