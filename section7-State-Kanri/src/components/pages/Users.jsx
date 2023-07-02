@@ -1,10 +1,13 @@
-import react, { useContext } from "react";
+// import react, { useContext } from "react";
 import styled from "styled-components";
 import SearchInput from "../molecules/SearchInput";
 import UserCard from "../organisms/user/UserCard";
 import SecondaryButton from "../atoms/button/SecondaryButton";
-import { useLocation } from "react-router-dom";
-import { UserContext } from "../../providers/UserProvider";
+// import { UserContext } from "../../providers/UserProvider";
+// 1.stateの取得・更新を行う場合、useRecoilState()を使用
+// 2.stateの値を読み取るコンポーネントは、stateが更新されると自動的にレンダリングされます。
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
 const users = [...Array(10).keys()].map((val) => {
   return {
@@ -21,7 +24,10 @@ const users = [...Array(10).keys()].map((val) => {
 });
 
 const Users = () => {
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  // const { userInfo, setUserInfo } = useContext(UserContext);
+  // 1.stateの「取得・更新」を行う場合、「useRecoilState」を使用する
+  // 2.stateの値を読み取るコンポーネントは、stateが更新されると自動的にレンダリングされます。
+  const [userInfo, setUserInfo] = useRecoilState(userState);
   const onClickSwitch = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
 
   return (
