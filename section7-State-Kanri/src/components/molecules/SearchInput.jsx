@@ -1,9 +1,12 @@
+import { memo } from "react";
 import styled from "styled-components";
 
 import PrimaryButton from "../atoms/button/PrimaryButton";
 import InputForm from "../atoms/input/InputForm";
 
-const SearchInput = () => {
+const SearchInput = memo(() => {
+  console.log("SearchInput");
+
   return (
     <SContainer>
       <InputForm placeholder="検索条件を入力" />
@@ -12,7 +15,7 @@ const SearchInput = () => {
       </SButtonWrapper>
     </SContainer>
   );
-};
+});
 
 export default SearchInput;
 

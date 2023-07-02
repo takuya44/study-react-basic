@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../../providers/UserProvider";
 
-const UserIconWithName = (props) => {
+const UserIconWithName = memo((props) => {
   const { name, image } = props;
   const { userInfo } = useContext(UserContext);
   const isAdmin = userInfo ? userInfo.isAdmin : false;
+  console.log("UserIconWithName");
 
   return (
     <SContainer>
@@ -14,7 +15,7 @@ const UserIconWithName = (props) => {
       {isAdmin && <SEdit>編集</SEdit>}
     </SContainer>
   );
-};
+});
 
 export default UserIconWithName;
 
