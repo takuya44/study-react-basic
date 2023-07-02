@@ -1,28 +1,33 @@
-import { useCallback, useMemo, useState } from "react";
-import ChildArea from "./ChildArea";
 import "./App.css";
+import axios from "axios";
 
 function App() {
-  console.log("親コンポーネントがレンダリングされました");
-  const [text, setText] = useState("");
-  const [open, setOpen] = useState(false);
+  const onClickUesrs = () => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  const onChangeText = (e) => setText(e.target.value);
-
-  const onClickOpen = () => setOpen(!open);
-
-  const onClickClose = useCallback(() => setOpen(false), [setOpen]);
-
-  const temp = useMemo(() => 1 + 3, []);
-  console.log(temp);
+  const onClickUesr1 = () => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users/1")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="App">
-      <input value={text} onChange={onChangeText} />
-      <br />
-      <br />
-      <button onClick={onClickOpen}>表示</button>
-      <ChildArea open={open} onClickClose={onClickClose} />
+      <button onClick={onClickUesrs}>users</button>
+      <button onClick={onClickUesr1}>id=1のuser</button>
     </div>
   );
 }
