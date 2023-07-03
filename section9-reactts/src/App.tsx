@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
+import Practice1 from "./practices/Practice1";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hi there!</h1>
-      <h2>Hi there!Hi there!</h2>
+      <Practice1 />
     </div>
   );
 }
