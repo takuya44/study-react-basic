@@ -1,44 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import UserCard from "./components/UserCard";
-import axios from "axios";
-import { User } from "./types/api/user";
-import { UserProfile } from "./types/UserProfile";
-
-// const user = {
-//   id: 1,
-//   name: "じゃけぇ",
-//   email: "1234@gamil.com",
-//   address: "東京",
-// };
+import { useAllUsers } from "./hooks/useAllUsers";
 
 function App() {
-  const [UserProfiles, setUserProfiles] = useState<UserProfile[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  console.log(UserProfiles);
+  const { getUsers, UserProfiles, loading, error } = useAllUsers();
 
-  const onclickFetchUser = () => {
-    setLoading(true);
-    setError(false);
-    axios
-      .get<User[]>("https://jsonplaceholder.typicode.com/users")
-      .then((res) => {
-        const data = res.data.map((user) => ({
-          id: user.id,
-          name: `${user.name}(${user.username})`,
-          email: user.email,
-          address: `${user.address.city}${user.address.suite}${user.address.street}`,
-        }));
-        setUserProfiles(data);
-      })
-      .catch(() => {
-        setError(true);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+  const onclickFetchUser = () => getUsers();
 
   return (
     <div className="App">
