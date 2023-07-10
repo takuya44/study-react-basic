@@ -1,8 +1,13 @@
 import React from "react";
 import "./App.css";
+import { Button, ButtonGroup, ChakraProvider } from "@chakra-ui/react";
 
 function App() {
-  return <div className="App">テスト</div>;
+  return (
+    <ChakraProvider>
+      <Button>ボタン</Button>
+    </ChakraProvider>
+  );
 }
 
 export default App;
