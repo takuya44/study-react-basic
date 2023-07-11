@@ -1,0 +1,4 @@
+{
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.tsdk": "./section12-chakraUI/node_modules/typescript/lib"
+}
