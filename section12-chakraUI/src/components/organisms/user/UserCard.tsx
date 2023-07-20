@@ -4,14 +4,15 @@ import { Box, Image, Stack, Text, Wrap, WrapItem } from "@chakra-ui/react";
 // import dog01 from "../../../img/dog01.jpg";
 
 type Props = {
+  id: number;
   imageUrl: string;
   userName: string;
   fullName: string;
-  onClick: () => void;
+  onClick: (id: number) => void;
 };
 
 const UserCard: VFC<Props> = memo((props) => {
-  const { imageUrl, userName, fullName, onClick } = props;
+  const { id, imageUrl, userName, fullName, onClick } = props;
 
   return (
     <Box
@@ -22,7 +23,7 @@ const UserCard: VFC<Props> = memo((props) => {
       shadow="md"
       p={4}
       _hover={{ cursor: "pointer", opacity: 0.8 }}
-      onClick={onClick}
+      onClick={() => onClick(id)}
     >
       <Stack textAlign="center">
         <Image

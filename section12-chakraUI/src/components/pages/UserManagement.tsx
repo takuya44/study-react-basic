@@ -20,7 +20,13 @@ const UserManagement: VFC = memo(() => {
   useEffect(() => getUsers(), [getUsers]);
 
   // ユーザーをクリックした時にモーダルを開く
-  const onClickUser = useCallback(() => onOpen(), [onOpen]);
+  const onClickUser = useCallback(
+    (id: number) => {
+      onOpen();
+      console.log(`ユーザーをクリックしました id: ${id}`);
+    },
+    [onOpen]
+  );
 
   return (
     <>
@@ -33,6 +39,7 @@ const UserManagement: VFC = memo(() => {
           {users.map((user) => (
             <WrapItem key={user.id}>
               <UserCard
+                id={user.id}
                 imageUrl={"https://via.placeholder.com/600/92c952"}
                 userName={user.username}
                 fullName={user.name}
