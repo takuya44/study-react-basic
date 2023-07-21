@@ -9,12 +9,14 @@ import {
 
 import UserCard from "../organisms/user/UserCard";
 import { useAllUsers } from "../../hooks/useAllUsers";
+import { useSelectUser } from "../../hooks/useSelectUser";
 
 import UserDetailModal from "../organisms/user/UserDetailModal";
 
 const UserManagement: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getUsers, users, loading } = useAllUsers();
+  const { onSelectUser, selectedUser } = useSelectUser();
 
   // 初回レンダリング時にユーザー一覧を取得
   useEffect(() => getUsers(), [getUsers]);
@@ -22,10 +24,9 @@ const UserManagement: VFC = memo(() => {
   // ユーザーをクリックした時にモーダルを開く
   const onClickUser = useCallback(
     (id: number) => {
-      onOpen();
-      console.log(`ユーザーをクリックしました id: ${id}`);
+      onSelectUser({ id, users, onOpen });
     },
-    [onOpen]
+    [onOpen, onSelectUser, users]
   );
 
   return (
@@ -49,7 +50,7 @@ const UserManagement: VFC = memo(() => {
           ))}
         </Wrap>
       )}
-      <UserDetailModal isOpen={isOpen} onClose={onClose} />
+      <UserDetailModal user={selectedUser} isOpen={isOpen} onClose={onClose} />
     </>
   );
 });
