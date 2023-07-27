@@ -39,4 +39,25 @@ const ChildArea = memo((props) => {
 
 ### レンダリング最適化２(useCallback)：関数のメモ化
 
+- `useCallback`フックはメモ化されたコールバック関数を返す。これは、依存性配列の値が変更されたときだけ新たな関数を作成する。
+- `useCallback`を使うことで、依存性(`setOpen`)が変更されない限り、同じコールバック関数が使用され続けるため、不必要な子コンポーネントの再レンダリングを防ぐことができる。
+
+<details><summary>サンプルコード</summary>
+
+```js
+import { useCallback } from "react";
+
+const onClickClose = useCallback(() => setOpen(false), [setOpen]);
+
+return (
+  <div className="App">
+    <input value={text} onChange={onChangeText} />
+    <br />
+    <br />
+    <button onClick={onClickOpen}>表示</button>
+    <ChildArea open={open} onClickClose={onClickClose} />
+  </div>
+);
+```
+
 ### おまけ(useMemo)：変数のメモ化
