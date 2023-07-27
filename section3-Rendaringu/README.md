@@ -60,4 +60,26 @@ return (
 );
 ```
 
+</details>
+
 ### おまけ(useMemo)：変数のメモ化
+
+- `useMemo`のフックは、依存配列のいずれかの値が変わったときだけメモ化された値を再計算することで、不必要な計算を避けることができる。
+- `useMemo`は、再計算のコストが問題となる場合に限り、適切に使用した方がよいかも。
+
+<details><summary>サンプルコード</summary>
+
+```js
+// 例１
+const temp = useMemo(() => 1 + 3, []);
+
+// 例２
+var a = 0;
+var b = 0;
+
+// 計算コストが高い関数、aとbはその関数が依存している変数
+// 依存配列の値が変更されたときだけ、再レンダリングされる。
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
+
+</details>
