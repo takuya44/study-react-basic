@@ -18,7 +18,24 @@ D[プロップス変更] -->|再レンダリング| E[プロップスを受け�
 F[親コンポーネントの再レンダリング] -->|再レンダリング| G[子コンポーネント]
 ```
 
+</details>
+
 ### レンダリング最適化１(memo)：コンポーネントのメモ化
+
+- React における「メモ化（memoization）」とは、レンダリングの結果をメモリに保存しておき、次回以降同じ入力があった場合に保存された結果を再利用するという最適化手法の一つ。
+- メモ化は「React.memo()」関数を通じて実現され、特にプロップスが変更されない限り、再レンダリングを抑制しパフォーマンスを改善する。
+
+<details><summary>サンプルコード</summary>
+
+```js
+import { memo } from "react";
+
+const ChildArea = memo((props) => {
+  const { open, onClickClose } = props;
+});
+```
+
+</details>
 
 ### レンダリング最適化２(useCallback)：関数のメモ化
 
