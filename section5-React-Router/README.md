@@ -279,6 +279,58 @@ export default UrlParameter;
 
 </details>
 
+### クエリパラメータを扱う:Link to="/page2/999?name=hogohogo"→const { id } = useParams();
+
+<details><summary>Page2.jsx</summary>
+
+```js
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+const Page2 = () => {
+  return (
+    <div>
+      <h1>Page2ページです。</h1>
+      <Link to="/page2/100">URL Parameter</Link>
+      <br />
+      <Link to="/page2/999?name=hogohogo">クエリ Parameter</Link>
+    </div>
+  );
+};
+
+export default Page2;
+```
+
+</details>
+
+<details><summary>UrlParameter.jsx</summary>
+
+```js
+import {
+  useLocation,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
+
+const UrlParameter = () => {
+  const { id } = useParams();
+  const { search } = useLocation();
+  const query = new URLSearchParams(search);
+  console.log(query);
+  // console.log(query.get("name"));
+
+  return (
+    <div>
+      <h1>UrlParameterページです。</h1>
+      <p>パラメーターは{id}です</p>
+      <p>パラメーターは{query.get("name")}です</p>
+    </div>
+  );
+};
+
+export default UrlParameter;
+```
+
+</details>
+
 ### Link を使わないページ遷移：useHistory()
 
 <details><summary>サンプルコード</summary>
