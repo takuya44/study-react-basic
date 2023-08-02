@@ -160,6 +160,125 @@ export const Page1Routes = [
 
 </details>
 
+### URL パラメータを扱う:Link to="/page2/100"→const { id } = useParams();
+
+<details><summary>router/Router.jsx</summary>
+
+```js
+import { Switch, Route } from "react-router-dom";
+import Home from "../Home";
+import { Page1Routes } from "./Page1Routes";
+import { Page2Routes } from "./Page2Routes";
+
+const Router = () => {
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route
+        path="/page1"
+        render={({ match: { url } }) => (
+          <Switch>
+            {Page1Routes.map((route) => (
+              <Route
+                key={route.path}
+                exact={route.exact}
+                path={`${url}${route.path}`}
+              >
+                {route.children}
+              </Route>
+            ))}
+          </Switch>
+        )}
+      />
+      <Route
+        path="/page2"
+        render={({ match: { url } }) => (
+          <Switch>
+            {Page2Routes.map((route) => (
+              <Route
+                key={route.path}
+                exact={route.exact}
+                path={`${url}${route.path}`}
+              >
+                {route.children}
+              </Route>
+            ))}
+          </Switch>
+        )}
+      />
+    </Switch>
+  );
+};
+
+export default Router;
+```
+
+</details>
+
+<details><summary>router/Page2Routes.jsx</summary>
+
+```js
+import Page2 from "../Page2";
+import UrlParameter from "../UrlParameter";
+
+export const Page2Routes = [
+  {
+    path: "/",
+    exact: true,
+    children: <Page2 />,
+  },
+  {
+    path: "/:id",
+    exact: false,
+    children: <UrlParameter />,
+  },
+];
+```
+
+</details>
+
+<details><summary>Page2.jsx</summary>
+
+```js
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+const Page2 = () => {
+  return (
+    <div>
+      <h1>Page2ページです。</h1>
+      <Link to="/page2/100">URL Parameter</Link>
+    </div>
+  );
+};
+
+export default Page2;
+```
+
+</details>
+
+<details><summary>UrlParameter.jsx</summary>
+
+```js
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+
+const UrlParameter = () => {
+  const { id } = useParams();
+
+  return (
+    <div>
+      <h1>UrlParameterページです。</h1>
+      <p>パラメーターは{id}です</p>
+    </div>
+  );
+};
+
+export default UrlParameter;
+```
+
+</details>
+
 ### Link を使わないページ遷移：useHistory()
 
 <details><summary>サンプルコード</summary>
