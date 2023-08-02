@@ -60,6 +60,35 @@ React Router は、シングルページアプリケーションのルーティ�
 
 ### ルート定義の分割
 
+<details><summary>App.js</summary>
+
+```js
+import { BrowserRouter, Link } from "react-router-dom";
+
+import Router from "./router/Router";
+import "./App.css";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Link to="/">Home</Link>
+        <br />
+        <Link to="/page1">Page1</Link>
+        <br />
+        <Link to="/page2">Page2</Link>
+        <br />
+      </div>
+      <Router />
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+</details>
+
 <details><summary>router/Router.jsx</summary>
 
 ```js
