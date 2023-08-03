@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 const Page1DetailA = () => {
   // const location = useLocation();
   // console.log(location);
+  // 結果：{pathname: '/page1/detailA', state: Array(10), search: '', hash: '', key: 'o1oyib'}
   const { state } = useLocation();
   // console.log(state); // 結果：[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 

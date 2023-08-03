@@ -331,6 +331,57 @@ export default UrlParameter;
 
 </details>
 
+### state を渡すページ遷移：useLocation()
+
+目的：page1 で取得したデータを page1detail に持っていきたい。再度 API を叩いて値を Page1DetailA で再取得しないようにしたい。
+
+<details><summary>page1</summary>
+
+```js
+import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+
+const Page1 = () => {
+  const arr = [...Array(10).keys()];
+
+  return (
+    <div>
+      <h1>Page1ページです。</h1>
+      <Link to={{ pathname: "/page1/detailA", state: arr }}>DetailA</Link>
+      <br />
+      <Link to="/page1/detailB">DetailB</Link>
+    </div>
+  );
+};
+
+export default Page1;
+```
+
+</details>
+
+<details><summary>Page1DetailA</summary>
+
+```js
+import { useLocation } from "react-router-dom";
+
+const Page1DetailA = () => {
+  // const location = useLocation();
+  // console.log(location);
+  const { state } = useLocation();
+  console.log(state);
+  // 結果：[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  return (
+    <div>
+      <h1>Page1DetailAページです。</h1>
+    </div>
+  );
+};
+
+export default Page1DetailA;
+```
+
+</details>
+
 ### Link を使わないページ遷移：useHistory()
 
 <details><summary>サンプルコード</summary>
