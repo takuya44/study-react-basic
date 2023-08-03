@@ -384,6 +384,8 @@ export default Page1DetailA;
 
 ### Link を使わないページ遷移：useHistory()
 
+js の処理で画面遷移させる方法
+
 <details><summary>サンプルコード</summary>
 
 ```js
