@@ -1,39 +1,46 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 # メモ
 
-### 再レンダリングが起きる条件３つ
+# section8-JSONPlaceholder データ取得ガイド
 
-- state が更新されたコンポーネントは再レンダリングされる。
-- props が変更されたコンポーネントは再レンダリングされる。
-- 再レンダリングされたコンポーネント配下の子要素は再レンダリングされる
-  - 例」A ＞ B ＞ C（B での変更があると C も再レンダリングされる。）
+JSONPlaceholder。テスト用の REST API。このガイド。axios 使用。JSONPlaceholder からのデータ取得方法。
+
+## 1. axios インストール
+
+axios。プロジェクトへのインストール必要。
+
+```bash
+npm install axios
+```
+
+yarn 使用時:
+
+```bash
+yarn add axios
+```
+
+## 2. サンプルコード
+
+以下。axios 使用例。JSONPlaceholder からの投稿データ取得。
+
+```javascript
+import axios from "axios";
+
+const fetchData = async () => {
+  try {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+fetchData();
+```
+
+このコード。JSONPlaceholder の`/posts`エンドポイントからの投稿データ取得。コンソール表示。
+
+## 3. まとめ
+
+axios。JSONPlaceholder 等の API からのデータ取得容易。上記手順とサンプルコード。参考に。
