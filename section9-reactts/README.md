@@ -58,3 +58,17 @@ let obj2: { id: number; name: string } = { id: 0, name: "AAA" };
 ```
 
 </details>
+
+<details><summary>返却値の型指定</summary>
+
+```TypeScript
+  const calcTotalFee = (num: number): number => {
+    const total = num * 1.1;
+    return total;
+  };
+  const onClickPractice = () => {
+    console.log(calcTotalFee(100));
+  };
+```
+
+</details>
