@@ -8,7 +8,7 @@ import UserProfile from "./UserProfile";
 
 const user = {
   name: "シモン",
-  // hobbies: ["映画", "ゲーム"],
+  hobbies: ["映画", "ゲーム"],
 };
 
 function App() {
