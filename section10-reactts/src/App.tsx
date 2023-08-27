@@ -27,6 +27,8 @@ function App() {
     <div className="App">
       <UserProfile user={user} />
       <Text color="red" fontSize="18px" />
+      {/* childrenの方指定をしていないため、下記はエラーになる */}
+      {/* <Text color="red" fontSize="18px">ddd</Text> */}
       <button onClick={onClickFetchData}>Click me</button>
       {todos.map((todo: any) => (
         // <Todo todo={todo} />
