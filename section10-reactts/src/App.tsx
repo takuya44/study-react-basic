@@ -30,7 +30,12 @@ function App() {
       <button onClick={onClickFetchData}>Click me</button>
       {todos.map((todo: any) => (
         // <Todo todo={todo} />
-        <Todo key={todo.id} title={todo.title} userId={todo.userId} />
+        <Todo
+          key={todo.id}
+          title={todo.title}
+          userId={todo.userId}
+          completed={todo.completed}
+        />
       ))}
     </div>
   );
