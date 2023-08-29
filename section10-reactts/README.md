@@ -36,7 +36,11 @@ export default Todo;
   const { title, userId, completed = false } = props;
   const completeMark = completed ? "[完]" : "[未]";
 
-  return <p>{`${completeMark} ${title}{ユーザー:${userId}}`}</p>;
+  return (
+    <p>{`${completeMark} ${title}{ユーザー:${userId}}`}</p>;
+    {/* オプショナルチューニング */}
+    <dd>{user.hobbies ? user.hobbies?.join(" / ") : "趣味なし"}</dd>
+    )
 };
 ```
 
