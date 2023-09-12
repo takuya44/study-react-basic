@@ -45,3 +45,13 @@ export default Todo;
 ```
 
 </details>
+
+<details><summary>補足(ライブラリの型定義について)</summary>
+
+- `@types`がついてるものは型定義
+  - 自分で改めて型定義する必要はない。
+  - 例：`xxx.d.ts`(型定義されていることが多い)
+- `axios`はライブラリー事態に型定義が内包されている。
+- `react-router-dom`はついていない
+
+</details>
