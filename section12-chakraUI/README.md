@@ -12,6 +12,11 @@
 
 - React 17.0.1
 - Typescript 4.9.5
+- chakra-ui/react 1.8.9
+- chakra-ui/system 1.2.1
+- chakra-ui/icons 1.0.4
+- axios 1.4.0
+- react-router 5.0.1
   &thinsp;&nbsp;
 
 ## 画面遷移
