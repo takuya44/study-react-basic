@@ -101,3 +101,16 @@ stateDiagram
 
 </details>
 &thinsp;&nbsp;
+
+## メモ
+
+<details><summary>Copilot：スラッシュコマンド</summary>
+
+- /explain : 選択したコードがどのように機能するかを段階的に説明。
+- /fix : 選択したコードのバグの修正を提案。
+- /help : GitHub Copilot に関する一般的なヘルプを出力。
+- /tests : 選択したコードの単体テストを生成。
+- /vscode : VSCode のコマンドと設定に関する質問。
+- /clear : セッションをクリア。
+
+</details>
